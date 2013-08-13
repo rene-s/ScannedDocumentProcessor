@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jiu">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/jiu.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

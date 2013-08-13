@@ -15,10 +15,11 @@ import net.sourceforge.jiu.ops.WrongParameterException;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.*;
+import java.util.prefs.Preferences;
 
 /**
  * Takes a scanned text document and prepares it for example for your tax office.
- *
+ * <p/>
  * https://github.com/alexkasko/openjdk-unofficial-builds#openjdk-unofficial-installers-for-windows-linux-and-mac-os-x
  *
  * @author Rene Schmidt <rene@reneschmidt.de>
@@ -29,7 +30,38 @@ public class ScannedDocumentProcessor {
    */
   public ScadopProgressMonitor pm;
 
+  /**
+   * Overwrite files
+   */
   Boolean overwriteAll = false;
+
+  /**
+   * File chooser
+   */
+  JFileChooser fc;
+
+  /**
+   * Set prefs
+   */
+  public void setPrefs() {
+    getPrefs().put("lastDir", fc.getCurrentDirectory().toString());
+  }
+
+  /**
+   * Get last dir
+   */
+  public File getPrefLastDir() {
+    return new File(getPrefs().get("lastDir", "./"));
+  }
+
+  /**
+   * Get prefs instance
+   *
+   * @return Prefs instance
+   */
+  protected Preferences getPrefs() {
+    return Preferences.userRoot().node(this.getClass().getName());
+  }
 
   /**
    * Shut down the whole thing...
@@ -37,6 +69,7 @@ public class ScannedDocumentProcessor {
    * @param returnCode Return code
    */
   public void shutdown(int returnCode) {
+    setPrefs();
     pm.close();
     System.exit(returnCode);
   }
@@ -157,7 +190,6 @@ public class ScannedDocumentProcessor {
    * @return Scaled image
    */
   protected PixelImage scaleDown(PixelImage image) {
-
     if (image.getBitsPerPixel() < 24) { // make 24 bit image out of color-indexed or grey scale PNGs
       image = promoteImage(image);
     }
@@ -278,8 +310,8 @@ public class ScannedDocumentProcessor {
    * @return File[]
    */
   public File[] showOpenFileDialog() {
-    JFileChooser fc = new JFileChooser();
     FileNameExtensionFilter filenameExtFilter = new FileNameExtensionFilter("PNG Files", "png");
+    fc = new JFileChooser(getPrefLastDir());
     fc.addChoosableFileFilter(filenameExtFilter);
     fc.setFileFilter(filenameExtFilter);
     fc.setMultiSelectionEnabled(true);
