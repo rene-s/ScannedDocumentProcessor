@@ -6,7 +6,7 @@ This is what this program is for:
 1. I regularly have to prepare PNG documents for my tax office
 1. I scan the documents with fine resolution so I can fix scan errors, enhance quality and such.
 1. While most of the time I use Linux, sometimes I prepare documents on Windows.
-1. I do not want to send documents to my tax office, that are 1+ MB in size or even larger
+1. I do not want to send documents to my tax office that are 1+ MB in size or even larger
 1. I do not want to prepare all the docs manually (usually: scale proportionally to 800 px width, reduce colors to 8 without to much dithering)
 
 In the past I have used a simple bash script that was wrapped around ImageMagick. Did the trick most of the time, though
