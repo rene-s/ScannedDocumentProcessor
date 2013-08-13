@@ -31,7 +31,7 @@ GPL v2.
 
 # Download
 
-coming soon
+[Download the jar file](https://github.com/rene-s/ScannedDocumentProcessor/blob/master/ScannedDocumentProcessor.jar?raw=true)
 
 # Installation and how to use
 
