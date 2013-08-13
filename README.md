@@ -46,7 +46,7 @@ Java must be in your PATH.
 
 ## Acknowledgements
 
-WikiGit is based on other software:
+This software is based on other software:
 
 Name                       | Licence                   | Description
 --------                   | --------                  | --------
