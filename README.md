@@ -9,12 +9,13 @@ This is what this program is for:
 1. I do not want to send documents to my tax office that are 1-5 MB in size or even larger (because that takes too much time)
 1. I do not want to prepare all the docs manually (usually: scale proportionally to 800 px width, reduce colors to 8 without to much dithering)
 
-In the past I have used a simple bash script that was wrapped around ImageMagick. Did the trick most of the time, though
-I did not (and do not) want to set up ImageMagick on Windows (if that even is possible, I don't know).
+In the past I have used a simple bash script that was wrapped around ImageMagick. It did the trick most of the time, though
+I did not (and do not) want to set up ImageMagick on Windows (if that even is possible or feasible, I don't know).
 
 That's what ScannedDocumentProcessor is for:
 
-It takes a heap of PNG business documents, scales them down proportionally to 800 px width and reduces color.
+It takes a heap of PNG business documents, scales them down proportionally to 800 px width and reduces color while
+maintaining readability.
 
 Usually PNG images that are several MBs in size get crunched down to a couple of 100 KBs. They can be transmitted much faster than large files.
 
@@ -40,7 +41,7 @@ GPL v2.
 # Installation and how to use
 
 1. Install [Java JRE](https://www.java.com/getjava/)
-1. Double-click the jar or call like this:
+1. Double-click the jar (you might need to "chmod +x" the jar beforehand) or call like this:
 
 ```bash
  java -jar ScannedDocumentProcessor.jar
@@ -54,6 +55,6 @@ This software is based on other software:
 
 Name                       | Licence                   | Description
 --------                   | --------                  | --------
-[JIU](http://sourceforge.net/projects/jiu/) | GPL                       | A Java library for loading, editing, analyzing and saving pixel image files.
+[Java Imaging Utilities](http://sourceforge.net/projects/jiu/) | GPL | A Java library for loading, editing, analyzing and saving pixel image files.
 
 Have fun.
