@@ -312,8 +312,10 @@ public class ScannedDocumentProcessor {
   public File[] showOpenFileDialog() {
     FileNameExtensionFilter filenameExtFilter = new FileNameExtensionFilter("PNG Files", "png");
     fc = new JFileChooser(getPrefLastDir());
-    fc.addChoosableFileFilter(filenameExtFilter);
-    fc.setFileFilter(filenameExtFilter);
+
+    fc.getActionMap().get("viewTypeDetails").actionPerformed(null); // make "details" view type default so we can see file sizes
+    fc.addChoosableFileFilter(filenameExtFilter); // add PNG files filter
+    fc.setFileFilter(filenameExtFilter); // view only PNG files by default
     fc.setMultiSelectionEnabled(true);
 
     if (fc.showOpenDialog(new JFrame()) == JFileChooser.APPROVE_OPTION) {
