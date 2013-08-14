@@ -40,7 +40,7 @@ GPL v2.
 
 # Installation and how to use
 
-1. Install [Java JRE](https://www.java.com/getjava/)
+1. Install [Java JRE 7](https://www.java.com/getjava/)
 1. Double-click the jar (you might need to "chmod +x" the jar beforehand) or call like this:
 
 ```bash
